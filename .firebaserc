@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-2022-af873": {
+      "hosting": {
+        "login": [
+          "login-2022-af873"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-2022-af873"
+  }
+}
