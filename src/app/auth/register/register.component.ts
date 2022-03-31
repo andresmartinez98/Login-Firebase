@@ -42,9 +42,7 @@ export class RegisterComponent {
         this.toastr.success('Please verify your email address', 'Successfully Registered!');
       }
       else{
-        console.log('eeeeee');
         this.toastr.error('Apparently there is already an account with that email address', 'Existing email address!');
-        
       }
     } catch (error) {
       console.log(error);

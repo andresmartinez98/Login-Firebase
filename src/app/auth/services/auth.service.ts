@@ -18,7 +18,6 @@ export class AuthService extends RoleValidator{
 
   public user$: Observable<User | null | undefined>;
 
-
   constructor( public afAuth: AngularFireAuth,
                private afs: AngularFirestore ) {
     super();
@@ -69,7 +68,6 @@ export class AuthService extends RoleValidator{
     //   console.log('hola');      
     //   console.log(error.code);
     //   console.log(error.message);
-      
     // });
   }
 
