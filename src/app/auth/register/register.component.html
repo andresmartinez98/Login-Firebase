@@ -6,17 +6,25 @@
           <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
             <div class="form-group mt-3">
               <label for="email">Email</label>
-              <input type="email" class="form-control" formControlName="email" />
+              <input  type="email" 
+                      class="form-control" 
+                      formControlName="email"
+                      [class.is-invalid]="emailNoValido"/>
+              <small  *ngIf="emailNoValido"
+                class="form-text text-danger fast fadeIn">
+                  Ingrese un correo válido</small>
             </div>
             <div class="form-group mt-3">
               <label for="password">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                formControlName="password"
-              />
+              <input  type="password"
+                      class="form-control"
+                      formControlName="password"
+                      [class.is-invalid]="passNoValida"/>
+              <small  *ngIf="passNoValida"
+              class="form-text text-danger fast fadeIn">
+                  Ingrese al menos 8 caracteres</small>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-register mt-3">
+            <button type="submit" class="btn btn-primary btn-lg btn-register mt-3" [disabled]="registerForm.invalid">
               Register
             </button>
           </form>

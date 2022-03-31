@@ -56,6 +56,21 @@ export class AuthService extends RoleValidator{
     } catch (error) {
       console.log(error);
     }
+
+    // this.afAuth.signInWithEmailAndPassword(
+    //   email,
+    //   password
+    // ).then((userCredential) => {
+    //   const user = userCredential.user;
+    //   this.updateUserData(user);
+    //   console.log(user);
+    // })
+    // .catch((error) => {
+    //   console.log('hola');      
+    //   console.log(error.code);
+    //   console.log(error.message);
+      
+    // });
   }
 
   async loginGoogle(): Promise<any> {

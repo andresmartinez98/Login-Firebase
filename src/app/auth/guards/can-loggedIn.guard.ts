@@ -3,22 +3,22 @@ import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap, map, take } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root',
 })
-export class CanSuscriptorGuard implements CanActivate {
-  constructor( private authSvc: AuthService,
-               private toastr: ToastrService ) {}
+export class CanLoggedInGuard implements CanActivate {
+  constructor( private authSvc: AuthService, 
+               private router: Router ){}
 
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     return this.authSvc.user$.pipe(
       take(1),
-      map((user): boolean => user! && this.authSvc.isSuscriptor(user)),
-      tap((canSus) => {
-        if (!canSus) {
-          this.toastr.error('Must have permission to manage data.', 'Access denied!');
+      map((user): boolean => !user!),
+      tap((canLoggedIn) => {
+        if (!canLoggedIn) {
+          this.router.navigate(['/home']);
         }
       })
     );

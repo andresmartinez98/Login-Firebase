@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,12 @@ import { SendEmailComponent } from './auth/send-email/send-email.component';
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-top-center',
+      closeButton: true,
+      preventDuplicates: true
+    }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

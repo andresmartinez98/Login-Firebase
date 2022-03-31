@@ -6,13 +6,25 @@
           <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <div class="form-group mt-3">
               <label for="email">Email</label>
-              <input type="email" class="form-control" formControlName="email" />
+              <input type="email" 
+                      class="form-control" 
+                      formControlName="email"
+                      [class.is-invalid]="emailNoValido"/>
+              <small  *ngIf="emailNoValido"
+                class="form-text text-danger fast fadeIn">
+                  Ingrese un correo válido</small>
             </div>
             <div class="form-group  mt-3">
               <label for="password">Password</label>
-              <input type="password" class="form-control" formControlName="password" />
+              <input  type="password" 
+                      class="form-control" 
+                      formControlName="password"
+                      [class.is-invalid]="passNoValida"/>
+              <small  *ngIf="passNoValida"
+              class="form-text text-danger fast fadeIn">
+                  Ingrese al menos 8 caracteres</small>
             </div>
-            <button class="btn btn-primary btn-lg btn-login mt-3">
+            <button class="btn btn-primary btn-lg btn-login mt-3" [disabled]="loginForm.invalid">
               Login
             </button>
           </form>
